@@ -11,14 +11,21 @@ import java.util.ArrayList;
 
 public class magicBall
 {
-    // Make a function that creates a list of possible responses and prints a random one
-    public static void magicBallResponse() {
-        // Make a list of possible responses
+    // Function that makes a list of all possible responses
+    public static ArrayList<String> createAnswerList(){
         ArrayList<String> answerList = new ArrayList<>();
         answerList.add("Yes");
         answerList.add("No");
         answerList.add("Maybe");
         answerList.add("Ask again later.");
+
+        return answerList;
+    }
+
+    // Make a function that creates a list of possible responses and prints a random one
+    public static void magicBallResponse() {
+        // Make a list of possible responses
+        ArrayList<String> answerList = createAnswerList();
 
         // Make a randomizer
         Random rand = new Random();

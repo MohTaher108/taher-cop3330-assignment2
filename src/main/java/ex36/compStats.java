@@ -95,7 +95,7 @@ public class compStats
     public static void main( String[] args )
     {
         // Input values
-        ArrayList<Integer> numbers= readValues();
+        ArrayList<Integer> numbers = readValues();
 
         // Print values
         System.out.print("Numbers: " + numbers.get(0));

@@ -11,8 +11,8 @@ import java.util.Random;
 
 public class pickWinner
 {
-    public static void main( String[] args )
-    {
+    // Function that reads in a bunch of names and stores them into a list and returns it
+    public static ArrayList<String> inputNames() {
         // Open the scanner
         Scanner in = new Scanner(System.in);
 
@@ -31,11 +31,19 @@ public class pickWinner
             s = in.nextLine();
         }
 
+        // Close the scanner
+        in.close();
+
+        return namesList;
+    }
+
+    public static void main( String[] args )
+    {
+        // Read in all names and stored into an arraylist
+        ArrayList<String> namesList = inputNames();
+
         // Make a randomizer and print whoever was randomly chosen by the randomizer
         Random rand = new Random();
         System.out.println("The winner is... " + namesList.get(rand.nextInt(namesList.size())));
-
-        // Close the scanner
-        in.close();
     }
 }

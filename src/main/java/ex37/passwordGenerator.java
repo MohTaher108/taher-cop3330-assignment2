@@ -58,7 +58,7 @@ public class passwordGenerator
         int numNumbersInPassword = 0, numSpecialCharsInPassword = 0, numLetters = 0;
         /* For loop that inputs characters into the password depending on a random value
            This loop keeps going for the inputted length up to +3 */
-        for(int i = 0; i < (rand.nextInt(3) + length); i++) {
+        for(int i = 0; i < length; i++) {
             // Generate a random number
             int randomNum = rand.nextInt(3);
             // If there are too little letters, force a random letter
@@ -85,7 +85,7 @@ public class passwordGenerator
     }
 
     // Function that shuffles the password to make the order of character random
-    public static void passwordShuffle(int length, ArrayList<Character> password) {
+    public static ArrayList<Character> passwordShuffle(int length, ArrayList<Character> password) {
         // Make a randomizer
         Random rand = new Random();
 
@@ -98,7 +98,9 @@ public class passwordGenerator
             // Shuffle the values at index i and the randomized value
             password.set(i, password.get(randValue));
             password.set(randValue, temp);
+
         }
+        return password;
     }
 
     public static void main( String[] args )
@@ -118,7 +120,7 @@ public class passwordGenerator
         // Generate random password
         ArrayList<Character> password = makePassword(length, numNumbers, numSpecialChars);
         // Shuffle password to make it even more random
-        passwordShuffle(length, password);
+        password = passwordShuffle(length, password);
         // Print password
         for(char c: password) System.out.print(c);
 

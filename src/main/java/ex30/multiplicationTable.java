@@ -9,8 +9,7 @@ import java.util.Scanner;
 
 public class multiplicationTable
 {
-    public static void main( String[] args )
-    {
+    public static void printTable() {
         // Open the scanner
         Scanner in = new Scanner(System.in);
 
@@ -33,5 +32,11 @@ public class multiplicationTable
 
         // Close scanner
         in.close();
+    }
+
+    public static void main( String[] args )
+    {
+        // Print multiplication table
+        printTable();
     }
 }

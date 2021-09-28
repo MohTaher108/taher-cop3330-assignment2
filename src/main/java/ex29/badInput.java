@@ -9,8 +9,8 @@ import java.util.Scanner;
 
 public class badInput
 {
-    public static void main( String[] args )
-    {
+    // Function that gets the user to input a non-numeric, non-zero value
+    public static String getValue() {
         // Open the scanner
         Scanner in = new Scanner(System.in);
 
@@ -23,19 +23,28 @@ public class badInput
         while(values.length() != 1 || values.charAt(0) == '0' || !Character.isDigit(values.charAt(0))) {
             // If the user entered a non-numeric character, say so
             if(values.charAt(0) != '0') System.out.println("Sorry. That's not a valid input.");
-            // If the user entered a 0, say so
+                // If the user entered a 0, say so
             else System.out.println("Sorry. 0 isn't a valid input");
             System.out.print("What is the rate of return? ");
             // Set values = to the next value and loop
             values = in.nextLine();
         }
+
+        // Close scanner
+        in.close();
+
+        return values;
+    }
+
+    public static void main( String[] args )
+    {
+        // Call function to get value
+        String values = getValue();
+
         // Extract the integer from values
         int r = Integer.parseInt(values);
 
         // Print calculation
         System.out.println("It will take " + (72 / r) + " years to double your initial investment.");
-
-        // Close scanner
-        in.close();
     }
 }
